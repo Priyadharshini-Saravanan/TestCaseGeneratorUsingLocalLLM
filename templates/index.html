@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Case Generator | Local LLM</title>
+    <meta name="description" content="Generate comprehensive test cases from requirements using a local LLM powered by Ollama">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                        <rect x="9" y="3" width="6" height="4" rx="1"/>
+                        <path d="M9 14l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h1>Test Case Generator</h1>
+                <span class="badge">Local LLM</span>
+            </div>
+            <div class="header-right">
+                <div id="status-indicator" class="status-dot status-checking" title="Checking connection..."></div>
+                <span id="status-text" class="status-text">Checking...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Chat Container -->
+    <main class="chat-container" id="chat-container">
+        <!-- Welcome message -->
+        <div class="welcome-section" id="welcome-section">
+            <div class="welcome-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                    <rect x="9" y="3" width="6" height="4" rx="1"/>
+                    <path d="M9 14l2 2 4-4"/>
+                </svg>
+            </div>
+            <h2>Welcome to Test Case Generator</h2>
+            <p>Describe a feature, requirement, or user story and I'll generate comprehensive test cases for you.</p>
+            <div class="examples">
+                <button class="example-btn" onclick="useExample(this)">Login page with email and password authentication</button>
+                <button class="example-btn" onclick="useExample(this)">Shopping cart with add, remove, and checkout functionality</button>
+                <button class="example-btn" onclick="useExample(this)">User registration form with validation</button>
+            </div>
+        </div>
+
+        <!-- Messages will be inserted here -->
+        <div id="messages-area"></div>
+    </main>
+
+    <!-- Input Area -->
+    <footer class="input-area">
+        <div class="input-wrapper">
+            <div class="textarea-container">
+                <textarea 
+                    id="user-input" 
+                    placeholder="Describe a feature, requirement, or user story..."
+                    rows="1"
+                    maxlength="5000"
+                ></textarea>
+                <span id="char-count" class="char-count">0 / 5000</span>
+            </div>
+            <button id="send-btn" class="send-btn" onclick="sendMessage()" title="Generate Test Cases">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+            </button>
+        </div>
+        <p class="input-footer-text">Powered by Ollama &middot; llama3.2 &middot; Running locally</p>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

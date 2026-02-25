@@ -1,0 +1,13 @@
+venv/
+.env
+.tmp/
+__pycache__/
+*.pyc
+.vscode/
+.gemini/
+findings.md
+progress.md
+task_plan.md
+task.md
+walkthrough.md
+handshake.py
